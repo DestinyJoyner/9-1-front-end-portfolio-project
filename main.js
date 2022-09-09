@@ -9,10 +9,10 @@ const showConverter = (x) => {
 }
 console.log(showConverter(input))
 
-fetch(`https://api.tvmaze.com/search/shows?q=${input}`)
-.then(resp => resp.json())
-.then(respJson => {
-    console.log(respJson)
-})
-.catch(err => console.log(err))
+// fetch(`https://api.tvmaze.com/search/shows?q=${input}`)
+// .then(resp => resp.json())
+// .then(respJson => {
+//     console.log(respJson)
+// })
+// .catch(err => console.log(err))
 
