@@ -1,0 +1,8 @@
+
+/* Mouse Over for Tv SHow Image to Show summary */
+.tvShowSummary {
+    max-width: 30ch;
+    max-height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

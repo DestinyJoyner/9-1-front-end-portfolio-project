@@ -1,4 +1,4 @@
-const tvShowData = [
+const respJson = [
     {
         "score": 1.2022517,
         "show": {
@@ -580,3 +580,60 @@ const tvShowData = [
         }
     }
 ]
+//DECLARE STORAGE VARIABLES
+// let tvShow = null
+// let language = null
+// let genre = null
+// let stillRunning = null
+// let started = null
+// let ended= null
+// let site = null
+// let rating = null 
+// let tvShowimageUrl = null
+// let tvShowSynopsis = null
+
+/*
+    -CREATE P TAGS TO POPULATE ARTICLE.MAINARTICLE ON PAGE WITH DEFAULT TV SHOW PICKS
+    -ADD CLASS TO BE HIDDEN FOR SHOWS AFTER INDEX(2)
+    -ADD LINK TO REVEAL (TOGGLE)HIDDEN TVSHOWS
+*/
+const mainArticle = document.querySelector(`article.mainArticle`)
+
+respJson.forEach(({show,status,premiered,ended,webpage,network}) => {
+    const tvInfo = document.createElement(`p`)
+    const tvImage = document.createElement(`img`)
+    tvImage.classList.add(`tvShowImage`)
+    // Create Pop up summary display element
+    const tvSummary = document.createElement(`div`)
+        tvSummary.classList.add(`tvShowSummary`)
+        tvSummary.innerHTML = show.summary
+        tvInfo.append(tvSummary)
+    let tvShowCountry = 'Unknown'
+
+    // ADD HOVER OVER EVENT LISTENER TO THE TVSHOW IMAGE TO GIVE BRIEF SUMMARY OF SHOW.
+    tvImage.addEventListener(`click`, (e) => {
+        tvSummary.style.display = 'block'
+
+    })
+    
+    if(show.image){
+      tvImage.setAttribute("src",show.image.medium)
+    }
+    else {
+        tvImage.setAttribute("src","assets/No_image_available.svg.png")
+    }
+    if(show.network){
+        tvImage.setAttribute("alt",show.network.country.name) 
+        tvShowCountry = show.network.country.name
+    }
+    
+    tvInfo.prepend(tvImage)
+    tvInfo.innerHTML +=`
+    <p>${show.name}</p> 
+    <p>${tvShowCountry}(${show.language})</p>
+    <p>${show.genres[0]}</p>
+    <p>${show.rating.average}</p>
+    `
+    mainArticle.append(tvInfo)
+
+})
