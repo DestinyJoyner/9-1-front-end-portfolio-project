@@ -1,4 +1,3 @@
-
 /* Mouse Over for Tv SHow Image to Show summary */
 /* .tvShowSummary {
     max-width: 30ch;
@@ -8,95 +7,112 @@
 } */
 
 
-
-/* DESIGN LANDING PAGE */
-* {
-    border: 1px solid black;
-    box-sizing: border-box;
-}
-
 /* SCROLLING IMAGES DEVELOPER'S PICKS
     https://blog.logrocket.com/creating-infinite-css-background-image-loop/
      */
-     @keyframes slide {
-        0% {
-          transform: translate(0);
-        }
-        100% {
-          transform: translate(-300px); /* The image width */
-        }
-      }
-    .scrollingImageContainer {
-        overflow: hidden;
-        display: flex;
-        width: 500px;
-    
-    }
-    .scrollingImages img {
-        width: 150px;
-        height: 200px;
-    }
-    .scrollingImages {
-        height: 200px;
-        animation: slide 10s linear infinite;
-    }
+@keyframes slide {
+  0% {
+    transform: translate(0);
+  }
+  100% {
+    transform: translate(-450px); /* The image width */
+  }
+}
+.scrollingImageContainer {
+  overflow: hidden;
+  display: flex;
+  width: auto;
+  justify-content: space-evenly;
+}
+.scrollingImages img {
+  width: 150px;
+  height: 200px;
+}
+.scrollingImages {
+  height: 200px;
+  animation: slide 10s linear infinite;
+}
 
 
+/* DESIGN LANDING PAGE */
+* {
+    /* border: 1px solid black; */
+    box-sizing: border-box;
+  }
 
+  /* CSS FOR MAIN (CENTER) ARTICLES ON PAGE */
 .hidden {
-    display: none;
+  display: none;
 }
 main {
-    display: grid;
-    grid-template-columns: .5fr 3fr 1fr;
-    grid-template-rows: 6fr;
+  display: grid;
+  grid-template-columns: 0.5fr 3fr 1fr;
+  grid-template-rows: 6fr;
 }
-
 .middlePage {
-    display: grid;
-    grid-template-rows: .25fr 5fr 1fr;
-    grid-template-rows: max-content;
-    grid-column: 2;
-    
-    
-
+  display: grid;
+  grid-template-rows: 0.25fr 5fr 1fr;
+  grid-template-rows: max-content;
+  grid-column: 2;
+  row-gap: 30px;
 }
-
 .mainArticle {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    text-align: center;
-    grid-column: 2;
-    grid-row: 2;
-    grid-template-rows: max-content;
-    
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+  grid-column: 2;
+  grid-row: 2;
+  grid-template-rows: max-content;
 }
 .mainArticle img {
-    width: 120px;
+  width: 120px;
 }
-
-
 .mainArticleHeader {
-    grid-row: 1;
-    grid-column: 2;
-    text-align: center;
+  grid-row: 1;
+  grid-column: 2;
+  text-align: center;
 }
 .showHiddenResults {
-    grid-column: 3;
-    grid-row: 2;
-    align-self: center;
+  grid-column: 3;
+  grid-row: 2;
+  align-self: center;
+}
+.developerPicks {
+  grid-row: 3;
+  display: grid;
+  grid-template-columns: fit-content();
+  align-items: center;
+  grid-column: 2;
+  text-align: center;
+}
+.userPicks {
+  display: grid;
+  grid-template-rows: 0.5fr 3fr;
+}
+.userPicks h3 {
+  grid-row: 1;
+  text-align: center;
 }
 
-.developerPicks {
-    grid-row: 3;
+/* CSS FOR HEADER (TOP OF PAGE) */
+header {
     display: grid;
-    grid-template-columns: fit-content() ;
-    align-items: center;
+    grid-template-columns: .5fr 3fr .5fr;
+    grid-template-rows: 1fr .25fr;
+}
+h1 {
     grid-column: 2;
-    text-align: center;
+    width: max-content;
+    justify-self: center;
+}
+.header {
+    grid-row: 2;
+    grid-column: 2;
+    width: max-content;
+    justify-self: center;
    
 }
-
-.userPicks {
-    
+header a {
+    height: 25%;
+    align-self: center;
 }
