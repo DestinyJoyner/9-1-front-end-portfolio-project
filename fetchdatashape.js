@@ -599,22 +599,27 @@ const respJson = [
 */
 const mainArticle = document.querySelector(`article.mainArticle`)
 
-respJson.forEach(({show,status,premiered,ended,webpage,network}) => {
+respJson.forEach(({show,status,premiered,ended,webpage,network},i) => {
     const tvInfo = document.createElement(`p`)
     const tvImage = document.createElement(`img`)
     tvImage.classList.add(`tvShowImage`)
     // Create Pop up summary display element
-    const tvSummary = document.createElement(`div`)
-        tvSummary.classList.add(`tvShowSummary`)
-        tvSummary.innerHTML = show.summary
-        tvInfo.append(tvSummary)
+    // const tvSummary = document.createElement(`div`)
+    //     tvSummary.classList.add(`tvShowSummary`)
+    //     tvSummary.innerHTML = show.summary
+    //     tvInfo.append(tvSummary)
     let tvShowCountry = 'Unknown'
+    // const tvShowId = show.id
+    // if(tvShowId === 526){
+    //     console.log(fetch(`https://api.tvmaze.com/shows/${tvShowId}/episodes`).then(resp => resp.json()).then(respJson => console.log(respJson)))
+    // }
+   
 
     // ADD HOVER OVER EVENT LISTENER TO THE TVSHOW IMAGE TO GIVE BRIEF SUMMARY OF SHOW.
-    tvImage.addEventListener(`click`, (e) => {
-        tvSummary.style.display = 'block'
+    // tvImage.addEventListener(`click`, (e) => {
+    //     tvSummary.style.display = 'block'
 
-    })
+    // })
     
     if(show.image){
       tvImage.setAttribute("src",show.image.medium)
@@ -634,6 +639,12 @@ respJson.forEach(({show,status,premiered,ended,webpage,network}) => {
     <p>${show.genres[0]}</p>
     <p>${show.rating.average}</p>
     `
+    if(i >= 3){
+        tvInfo.classList.add(`hidden`)
+    }
     mainArticle.append(tvInfo)
 
 })
+
+
+

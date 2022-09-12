@@ -1,8 +1,102 @@
 
 /* Mouse Over for Tv SHow Image to Show summary */
-.tvShowSummary {
+/* .tvShowSummary {
     max-width: 30ch;
     max-height: 100px;
     overflow: hidden;
     text-overflow: ellipsis;
+} */
+
+
+
+/* DESIGN LANDING PAGE */
+* {
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+/* SCROLLING IMAGES DEVELOPER'S PICKS
+    https://blog.logrocket.com/creating-infinite-css-background-image-loop/
+     */
+     @keyframes slide {
+        0% {
+          transform: translate(0);
+        }
+        100% {
+          transform: translate(-300px); /* The image width */
+        }
+      }
+    .scrollingImageContainer {
+        overflow: hidden;
+        display: flex;
+        width: 500px;
+    
+    }
+    .scrollingImages img {
+        width: 150px;
+        height: 200px;
+    }
+    .scrollingImages {
+        height: 200px;
+        animation: slide 10s linear infinite;
+    }
+
+
+
+.hidden {
+    display: none;
+}
+main {
+    display: grid;
+    grid-template-columns: .5fr 3fr 1fr;
+    grid-template-rows: 6fr;
+}
+
+.middlePage {
+    display: grid;
+    grid-template-rows: .25fr 5fr 1fr;
+    grid-template-rows: max-content;
+    grid-column: 2;
+    
+    
+
+}
+
+.mainArticle {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    text-align: center;
+    grid-column: 2;
+    grid-row: 2;
+    grid-template-rows: max-content;
+    
+}
+.mainArticle img {
+    width: 120px;
+}
+
+
+.mainArticleHeader {
+    grid-row: 1;
+    grid-column: 2;
+    text-align: center;
+}
+.showHiddenResults {
+    grid-column: 3;
+    grid-row: 2;
+    align-self: center;
+}
+
+.developerPicks {
+    grid-row: 3;
+    display: grid;
+    grid-template-columns: fit-content() ;
+    align-items: center;
+    grid-column: 2;
+    text-align: center;
+   
+}
+
+.userPicks {
+    
 }
