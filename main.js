@@ -8,7 +8,7 @@ const form = document.querySelector(`form`);
 const clickForMore = document.querySelector(`.showHiddenResults`);
 
 //Variable for User Picks 'ul'
-
+const userPicks = document.querySelector(`.userPicks`)
 
 //Function for input conversion for search
 const showConverter = (x) => {
@@ -63,10 +63,25 @@ function fetchInput(tvShow, index) {
           checkbox.type =`checkbox`
           checkbox.name = `checkbox`
           checkbox.value = `${show.id}`
+
+          //ADD EVENT LISTENER TO CHECKBOX
+          checkbox.addEventListener(`change`, (e) => {
+            if(e.target.checked){
+                const li = document.createElement(`li`)
+                li.innerHTML = `<a class="showSummary" href="http://">${e.path[2].children[1].innerText}</a>`
+                userPicks.append(li)
+            }
+            if(!e.target.checked){
+                const liElements = document.querySelectorAll(`li`)
+                liElements.forEach(li => {
+                    if(e.path[2].children[1].innerText === li.innerText){
+                        li.remove()
+                    }
+                })
+            }
+          })
           labelCheckbox.append(checkbox)
           tvInfo.append(labelCheckbox)
-
-          //ADD EPISODE LIST LINKS -> LINK TO NEW .HTML
           mainArticle.append(tvInfo);
         }
       );
@@ -113,12 +128,11 @@ clickForMore.addEventListener(`click`, (e) => {
 });
 
 //CheckBoxes
-const checked = document.getElementsByClassName(`checkbox`)
-console.log(checked)
-checked.forEach((c) => {
-    c.addEventListener(`change`, () => {
-        if(this.checked){
+    
+    // c.addEventListener(`change`, (e) => {
+    //     if(c.checked){
+    //         userPicks.append(c.parentElement.split(`\n`)[0])
+    //     }
+    // })
 
-        }
-    })
-})
+// "House of the Dragon\n\nUnited States(English)\n\
