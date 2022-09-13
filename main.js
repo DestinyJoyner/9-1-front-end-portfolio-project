@@ -20,8 +20,10 @@ function fetchInput(tvShow, index) {
   fetch(`https://api.tvmaze.com/search/shows?q=${showConverter(tvShow)}`)
     .then((resp) => resp.json())
     .then((respJson) => {
+        //STORE ALL FETCHED DATA LOCALLY
+        localStorage.setItem(`${tvShow}`, respJson)
       respJson.forEach(
-        ({ show, status, premiered, ended, webpage, network }, i) => {
+        ({show}, i) => {
           const tvInfo = document.createElement(`p`);
           const tvImage = document.createElement(`img`);
           tvImage.classList.add(`tvShowImage`);
@@ -102,7 +104,7 @@ landingPageInfo(`the rings of power`);
 landingPageInfo(`westworld`);
 landingPageInfo(`rick and morty`);
 
-//EVENT LISTENER FOR FORM INPUT
+//EVENT LISTENER FOR FORM INPUT (Included local Storage)
 form.addEventListener(`submit`, (e) => {
   e.preventDefault();
   mainArticle.innerHTML = ``;
