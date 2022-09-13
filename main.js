@@ -68,7 +68,7 @@ function fetchInput(tvShow, index) {
           checkbox.addEventListener(`change`, (e) => {
             if(e.target.checked){
                 const li = document.createElement(`li`)
-                li.innerHTML = `<a class="showSummary" href="http://">${e.path[2].children[1].innerText}</a>`
+                li.innerHTML = `<a class="showSummary" href="UserPicks/userPick.html" target ="_blank">${e.path[2].children[1].innerText}</a>`
                 userPicks.append(li)
             }
             if(!e.target.checked){
