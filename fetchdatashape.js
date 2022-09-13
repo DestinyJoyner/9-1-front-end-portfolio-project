@@ -584,7 +584,8 @@ const testdata = [
 ];
 
 
-
+// const checked = document.querySelectorAll(`.checkbox`)
+// console.log(checked)
 
 
 

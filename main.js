@@ -7,6 +7,9 @@ const form = document.querySelector(`form`);
 //Variable for 'clickForMoreLink' on page
 const clickForMore = document.querySelector(`.showHiddenResults`);
 
+//Variable for User Picks 'ul'
+
+
 //Function for input conversion for search
 const showConverter = (x) => {
   return x.split(` `).join(`+`);
@@ -51,6 +54,18 @@ function fetchInput(tvShow, index) {
             }
           }
           //ADD CHECKBOXES TO ADD TO USERPICKS
+          const labelCheckbox = document.createElement(`label`)
+          labelCheckbox.for = `${show.id}`
+          labelCheckbox.innerHTML =`Add To My Watch List<br>`
+          labelCheckbox.classList.add(`checkbox`)
+          labelCheckbox.style.fontFamily =`Shrikhand`
+          const checkbox = document.createElement(`input`)
+          checkbox.type =`checkbox`
+          checkbox.name = `checkbox`
+          checkbox.value = `${show.id}`
+          labelCheckbox.append(checkbox)
+          tvInfo.append(labelCheckbox)
+
           //ADD EPISODE LIST LINKS -> LINK TO NEW .HTML
           mainArticle.append(tvInfo);
         }
@@ -58,6 +73,7 @@ function fetchInput(tvShow, index) {
     })
     .catch((err) => console.log(err));
 }
+
 
 //Default images on LANDING screen -> call fetchInfo with index value to only display first result
 function landingPageInfo(defaultShow, index) {
@@ -95,3 +111,14 @@ clickForMore.addEventListener(`click`, (e) => {
   }
   clickForMore.classList.toggle(`hidden`);
 });
+
+//CheckBoxes
+const checked = document.getElementsByClassName(`checkbox`)
+console.log(checked)
+checked.forEach((c) => {
+    c.addEventListener(`change`, () => {
+        if(this.checked){
+
+        }
+    })
+})
