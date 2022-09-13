@@ -583,17 +583,10 @@ const testdata = [
   },
 ];
 
-const mainArticle = document.querySelector(`article.mainArticle`);
-
-//Function for input conversion for search
-const showConverter = (x) => {
-  return x.split(` `).join(`+`);
-};
-
 //Variable for input 'submit' form on page
 const form = document.querySelector(`form`);
 //Variable for 'click to show more' link on page
-const clickForMore = document.querySelector(`.showHiddenResults`)
+
 
 // EVENTUAL EVENT LISTENER FOR FORM INPUT
 form.addEventListener(`submit`, (e) => {
@@ -652,7 +645,7 @@ form.addEventListener(`submit`, (e) => {
             })
         }
         clickForMore.classList.toggle(`hidden`)
-      })
+      }) // closes clickForMore eventListener
 
 
 
