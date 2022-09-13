@@ -583,75 +583,10 @@ const testdata = [
   },
 ];
 
-//Variable for input 'submit' form on page
-const form = document.querySelector(`form`);
-//Variable for 'click to show more' link on page
-
-
-// EVENTUAL EVENT LISTENER FOR FORM INPUT
-form.addEventListener(`submit`, (e) => {
-  e.preventDefault();
-  mainArticle.innerHTML = ``
-  mainArticle.append(clickForMore)
-  const input = showConverter(form.input.value);
-  console.log(input);
-  fetch(`https://api.tvmaze.com/search/shows?q=${input}`)
-    .then((resp) => resp.json())
-    .then((respJson) => {
-      respJson.forEach(
-        ({ show, status, premiered, ended, webpage, network }, i) => {
-            
-          const tvInfo = document.createElement(`p`);
-          const tvImage = document.createElement(`img`);
-          tvImage.classList.add(`tvShowImage`);
-          let tvShowCountry = "Unknown";
-          if (show.image) {
-            tvImage.setAttribute("src", show.image.medium);
-          } else {
-            tvImage.setAttribute("src", "assets/No_image_available.svg.png");
-          }
-          if (show.network) {
-            tvImage.setAttribute("alt", show.network.country.name);
-            tvShowCountry = show.network.country.name;
-          }
-          if(!show.rating.average){
-            show.rating.average = `No rating`
-          }
-          tvInfo.innerHTML = `
-        <p>${show.name}</p> 
-        <p>${tvShowCountry}(${show.language})</p>
-        <p>${show.genres[0]}</p>
-        <p>${show.rating.average}</p>
-        `;
-        tvInfo.prepend(tvImage);
-          if (i >= 3) {
-            tvInfo.classList.add(`hidden`);
-          }
-          mainArticle.append(tvInfo)
-
-        }
-      ); //closes off respJson.forEach
-      //Add Event Listener for 'clickForMore' link
-      clickForMore.addEventListener(`click`, (e) => {
-        e.preventDefault()
-        const hidden = document.querySelectorAll(`.hidden`)
-        // console.log(hidden)
-        if(!hidden.length){
-            clickForMore.classList.remove(`hidden`)
-        }
-        else{
-            hidden.forEach((x,i) => {
-                x.classList.toggle(`hidden`)
-            })
-        }
-        clickForMore.classList.toggle(`hidden`)
-      }) // closes clickForMore eventListener
 
 
 
-    })//closes second 'then'
-    .catch((err) => console.log(err));
-    form.reset()
-});//closes Event Listener
 
+
+   
 

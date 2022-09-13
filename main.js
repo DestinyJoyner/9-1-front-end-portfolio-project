@@ -1,16 +1,19 @@
 //Variable for main Article on page
 const mainArticle = document.querySelector(`article.mainArticle`);
 
+//Variable for input 'submit' form on page
+const form = document.querySelector(`form`);
+
 //Variable for 'clickForMoreLink' on page
-const clickForMore = document.querySelector(`.showHiddenResults`)
+const clickForMore = document.querySelector(`.showHiddenResults`);
 
 //Function for input conversion for search
 const showConverter = (x) => {
   return x.split(` `).join(`+`);
 };
 
-//FUNCTION FOR FETCH DATA 
-function fetchInput(tvShow,index) {
+//FUNCTION FOR FETCH DATA
+function fetchInput(tvShow, index) {
   fetch(`https://api.tvmaze.com/search/shows?q=${showConverter(tvShow)}`)
     .then((resp) => resp.json())
     .then((respJson) => {
@@ -42,25 +45,53 @@ function fetchInput(tvShow,index) {
           if (i >= 3) {
             tvInfo.classList.add(`hidden`);
           }
-          if(index){
-            if (i > 0){
-                tvInfo.classList.add(`hidden`)
+          if (index) {
+            if (i > 0) {
+              tvInfo.classList.add(`hidden`);
             }
-        }
+          }
+          //ADD CHECKBOXES TO ADD TO USERPICKS
+          //ADD EPISODE LIST LINKS -> LINK TO NEW .HTML
           mainArticle.append(tvInfo);
-          
         }
       );
-    });
+    })
+    .catch((err) => console.log(err));
 }
 
-//Default images on main screen -> call fetchInfo with index value to only display first result
+//Default images on LANDING screen -> call fetchInfo with index value to only display first result
 function landingPageInfo(defaultShow, index) {
-    fetchInput(defaultShow, true )
+  fetchInput(defaultShow, true);
+  clickForMore.classList.add(`hidden`);
 }
-landingPageInfo(`house of the dragon`)
-landingPageInfo(`archer`)
-landingPageInfo(`the walking dead`)
+landingPageInfo(`house of the dragon`);
+landingPageInfo(`archer`);
+landingPageInfo(`the walking dead`);
+landingPageInfo(`the rings of power`);
+landingPageInfo(`westworld`);
+landingPageInfo(`rick and morty`);
 
-clickForMore.remove()
+//EVENT LISTENER FOR FORM INPUT
+form.addEventListener(`submit`, (e) => {
+  e.preventDefault();
+  mainArticle.innerHTML = ``;
+  mainArticle.append(clickForMore);
+  const input = showConverter(form.input.value);
+  fetchInput(input);
+  clickForMore.classList.toggle(`hidden`);
+  form.reset();
+});
 
+//EVENT LISTENER FOR 'clickForMore' LINK
+clickForMore.addEventListener(`click`, (e) => {
+  e.preventDefault();
+  const hidden = document.querySelectorAll(`.hidden`);
+  if (!hidden.length) {
+    clickForMore.classList.remove(`hidden`);
+  } else {
+    hidden.forEach((x, i) => {
+      x.classList.toggle(`hidden`);
+    });
+  }
+  clickForMore.classList.toggle(`hidden`);
+});
