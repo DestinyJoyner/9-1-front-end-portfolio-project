@@ -49,9 +49,12 @@
 
 /* DESIGN LANDING PAGE */
 * {
-    border: 1px solid rgb(180, 6, 145);
+    /* border: 1px solid rgb(180, 6, 145); */
     box-sizing: border-box;
     color: rgb(254, 255, 255);
+  }
+  h1 {
+    font-family: exan-regular;
   }
 
   /* CSS FOR MAIN (CENTER) ARTICLES ON PAGE */
@@ -77,6 +80,7 @@ main {
   grid-column: 2;
   grid-row: 2;
   grid-template-rows: max-content;
+  font-family:  ;
 }
 .mainArticle img {
   width: 120px;
@@ -85,6 +89,7 @@ main {
   grid-row: 1;
   grid-column: 2;
   text-align: center;
+  font-family: astro;
 }
 .showHiddenResults {
   grid-column: 3;

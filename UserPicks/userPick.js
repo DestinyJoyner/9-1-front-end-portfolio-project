@@ -1,5 +1,5 @@
 //USER PICKS JS FROM LINK CLICK
-console.log(localStorage.getItem(`link`))
+// console.log(localStorage.getItem(`link`))
 const link = localStorage.getItem(`link`)
 
 fetch(`https://api.tvmaze.com/shows/${link}`)

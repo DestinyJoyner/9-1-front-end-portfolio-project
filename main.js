@@ -70,15 +70,18 @@ function fetchInput(tvShow, index) {
         //ADD EVENT LISTENER TO CHECKBOX
         checkbox.addEventListener(`change`, (e) => {
           if (e.target.checked) {
-            console.log(e.target.value)
+            console.log(e.target.value);
             const li = document.createElement(`li`);
-            li.innerHTML = `<a class="showSummary" href="UserPicks/userPick.html" target ="_blank">${e.path[2].children[1].innerText}</a>`;
-            userPicks.append(li);
+            const aTag = document.createElement(`a`)
+            aTag.href = `UserPicks/userPick.html`
+            aTag.target = `_blank`
             //Event Listener for userPick links to store value in local storage
-            const userLink = document.querySelector(`.showSummary`);
-            userLink.addEventListener(`click`, (event) => {
-              localStorage.setItem(`link`, e.target.value);
-            });
+            aTag.addEventListener(`click`, (event) => {
+                localStorage.setItem(`link`, e.target.value);
+            })
+            aTag.innerText = e.path[2].children[1].innerText
+            li.append(aTag)
+            userPicks.append(li);
           }
           if (!e.target.checked) {
             const liElements = document.querySelectorAll(`li`);
@@ -109,7 +112,7 @@ landingPageInfo(`the rings of power`);
 landingPageInfo(`westworld`);
 landingPageInfo(`rick and morty`);
 
-//EVENT LISTENER FOR FORM INPUT (Included local Storage)
+//EVENT LISTENER FOR FORM INPUT 
 form.addEventListener(`submit`, (e) => {
   e.preventDefault();
   mainArticle.innerHTML = ``;
@@ -133,4 +136,3 @@ clickForMore.addEventListener(`click`, (e) => {
   }
   clickForMore.classList.toggle(`hidden`);
 });
-
