@@ -587,7 +587,14 @@ const testdata = [
 // const checked = document.querySelectorAll(`.checkbox`)
 // console.log(checked)
 
-
+//EVENT LISTENERS FOR USER PICK LINKS 
+// const userLinks = document.querySelectorAll(`a.showSummary`)
+// console.log(userLinks)
+// userLinks.forEach(link => {
+//     link.addEventListener(`click`, (e) => {
+//         localStorage.setItem(`link`, des)
+//     })
+// })
 
    
 
