@@ -1,3 +1,5 @@
+//JS FOR LANDING PAGE
+
 //Variable for main Article on page
 const mainArticle = document.querySelector(`article.mainArticle`);
 
@@ -68,13 +70,14 @@ function fetchInput(tvShow, index) {
         //ADD EVENT LISTENER TO CHECKBOX
         checkbox.addEventListener(`change`, (e) => {
           if (e.target.checked) {
+            console.log(e.target.value)
             const li = document.createElement(`li`);
             li.innerHTML = `<a class="showSummary" href="UserPicks/userPick.html" target ="_blank">${e.path[2].children[1].innerText}</a>`;
             userPicks.append(li);
             //Event Listener for userPick links to store value in local storage
             const userLink = document.querySelector(`.showSummary`);
-            userLink.addEventListener(`click`, (e) => {
-              localStorage.setItem(`link`, e.target.innerText);
+            userLink.addEventListener(`click`, (event) => {
+              localStorage.setItem(`link`, e.target.value);
             });
           }
           if (!e.target.checked) {
@@ -131,5 +134,3 @@ clickForMore.addEventListener(`click`, (e) => {
   clickForMore.classList.toggle(`hidden`);
 });
 
-//Create Variable to be used in userPicks.js
-//EVENT LISTENERS FOR USER PICK LINKS
