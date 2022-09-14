@@ -70,18 +70,18 @@ function fetchInput(tvShow, index) {
         //ADD EVENT LISTENER TO CHECKBOX
         checkbox.addEventListener(`change`, (e) => {
           if (e.target.checked) {
-            console.log(e.target.value);
             const li = document.createElement(`li`);
             const aTag = document.createElement(`a`)
             aTag.href = `UserPicks/userPick.html`
             aTag.target = `_blank`
+            aTag.classList.add(`ulLink`)
             //Event Listener for userPick links to store value in local storage
             aTag.addEventListener(`click`, (event) => {
                 localStorage.setItem(`link`, e.target.value);
             })
             aTag.innerText = e.path[2].children[1].innerText
             li.append(aTag)
-            userPicks.append(li);
+            userPicks.append(li)
           }
           if (!e.target.checked) {
             const liElements = document.querySelectorAll(`li`);
@@ -91,6 +91,7 @@ function fetchInput(tvShow, index) {
               }
             });
           }
+          localStorage.setItem(`watchList`, userPicks.innerHTML)
         }); //closes checkbox event listener
         labelCheckbox.append(checkbox);
         tvInfo.append(labelCheckbox);
@@ -115,6 +116,10 @@ landingPageInfo(`rick and morty`);
 //EVENT LISTENER FOR FORM INPUT 
 form.addEventListener(`submit`, (e) => {
   e.preventDefault();
+  //ERROR MESSAGE IF NO INPUT
+  if(!form.input.value){
+    window.alert(`If you didn't want to watch anything, you wouldn't be here. Please enter a TvShow`)
+  }
   mainArticle.innerHTML = ``;
   mainArticle.append(clickForMore);
   const input = showConverter(form.input.value);
@@ -136,3 +141,6 @@ clickForMore.addEventListener(`click`, (e) => {
   }
   clickForMore.classList.toggle(`hidden`);
 });
+
+//Use localStorage to restore userPicks on page when reloaded
+userPicks.innerHTML = localStorage.getItem(`watchList`)

@@ -6,7 +6,6 @@
     text-overflow: ellipsis;
 } */
 
-
 /* SCROLLING IMAGES DEVELOPER'S PICKS
     https://blog.logrocket.com/creating-infinite-css-background-image-loop/
      */
@@ -35,29 +34,60 @@
 
 /* Background Video */
 #background-video {
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: -1;
-  }
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
 
+.static {
+  width: 79px;
+  height: 65px;
+  position: absolute;
+  top: 200px;
+  right: 80px;
+}
+a {
+  color: aqua;
+  font-size: 18px;
+  font-family: comfortaa;
+}
+a:hover {
+  font-size: 24px;
+  color: rgb(205, 14, 230);
+  font-family: shrikhand;
+}
+ul.userPicks {
+  list-style-image: url("./assets/smalltvicon.png");
+}
+.aboutMe {
+    justify-self: end;
+    grid-row: span 2;
+}
+.aboutMe a {
+    font-family: henny Penny;
+    color: #bf0fb6;
+    font-size: 18px;
+}
 
 /* DESIGN LANDING PAGE */
 * {
-    /* border: 1px solid rgb(180, 6, 145); */
-    box-sizing: border-box;
-    color: rgb(254, 255, 255);
-  }
-  h1 {
-    font-family: exan-regular;
-  }
+  /* border: 1px solid rgb(180, 6, 145); */
+  box-sizing: border-box;
+  color: rgb(254, 255, 255);
+}
+h1 {
+  font-family: exan-regular;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6,
+    0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
+}
 
-  /* CSS FOR MAIN (CENTER) ARTICLES ON PAGE */
+/* CSS FOR MAIN (CENTER) ARTICLES ON PAGE */
 .hidden {
   display: none;
 }
@@ -68,10 +98,9 @@ main {
 }
 .middlePage {
   display: grid;
-  grid-template-rows: 0.25fr 5fr 1fr;
   grid-template-rows: max-content;
   grid-column: 2;
-  row-gap: 30px;
+  row-gap: 10px;
 }
 .mainArticle {
   display: grid;
@@ -80,7 +109,7 @@ main {
   grid-column: 2;
   grid-row: 2;
   grid-template-rows: max-content;
-  font-family:  ;
+  font-family: ;
 }
 .mainArticle img {
   width: 120px;
@@ -90,7 +119,12 @@ main {
   grid-column: 2;
   text-align: center;
   font-family: astro;
+  font-size:40px;
+  width: fit-content;
+  height: 25px;
+  justify-self: center;
 }
+
 .showHiddenResults {
   grid-column: 3;
   grid-row: 2;
@@ -115,24 +149,24 @@ main {
 
 /* CSS FOR HEADER (TOP OF PAGE) */
 header {
-    display: grid;
-    grid-template-columns: .5fr 3fr .5fr;
-    grid-template-rows: 1fr .25fr;
+  display: grid;
+  grid-template-columns: .20fr 1fr .20fr;
+  grid-template-rows: 1fr .25fr ;
 }
 h1 {
-    grid-column: 2;
-    width: max-content;
-    justify-self: center;
+  grid-column: 2;
+  width: max-content;
+  justify-self: center;
+  grid-row: 1;
 }
 
 .header {
-    grid-row: 2;
-    grid-column: 2;
-    width: max-content;
-    justify-self: center;
-   
+  grid-row: 2;
+  grid-column: 2;
+  width: max-content;
+  justify-self: center;
 }
 header a {
-    height: 25%;
-    align-self: center;
+  height: 25%;
+  align-self: center;
 }
