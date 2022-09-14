@@ -57,21 +57,35 @@ fetch(`https://api.tvmaze.com/shows/${link}`)
 .catch(err => console.log(err))
 
 // Fetch for Episode Info
-fetch(`https://api.tvmaze.com/shows/${link}/episodes`)
-.then(resp => resp.json())
-.then(respJson => {
+ fetch(`https://api.tvmaze.com/shows/${link}/episodes`)
+ .then(resp => resp.json())
+ .then(respJson => {
     respJson.forEach((ep,i) => {
-        if( i < 20){
-            const episode = document.createElement(`p`)
-            episode.classList.add(`episode`)
-            episode.innerHTML =` 
-            <h3>${ep.name}</h3>
-            <p>Season : ${ep.season} Episode: ${ep.number}</p> 
-            <p>Aired: ${ep.airdate}</p>
-            <p>${ep.summary}</p>`
-            document.querySelector(`.episodeSection`).append(episode)
+        const season1 = document.querySelector(`.season1`)
+        const storage = document.querySelector(`.storage`)
+        if (ep.season === 1){
+            const option = document.createElement(`option`)
+            option.value = `${ep.id}`
+            option.innerText = `${ep.name}`
+            const epSummary = document.createElement('p')
+            epSummary.id =`${ep.id}`
+            epSummary.classList.add(`hidden`)
+            epSummary.innerHTML = `${ep.summary}`
+            season1.append(option)
+            storage.append(epSummary)
         }
-        
     })
-})
-.catch(err => console.log(err))
+ })
+ .catch(err => console.log(err)) 
+
+ //EVENT LISTENER FOR DROPDOWN 
+ const dropDown = document.getElementById(`season1`)
+ dropDown.addEventListener(`change`, (e) => {
+    if(document.querySelector(`.show`)){
+        document.querySelector(`.show`).classList.toggle('hidden')
+        document.querySelector(`.show`).classList.remove('show')
+    
+}
+    document.getElementById(`${e.target.value}`).classList.toggle(`hidden`)
+    document.getElementById(`${e.target.value}`).classList.add(`show`)
+ })
