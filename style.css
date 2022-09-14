@@ -58,7 +58,7 @@ a {
   font-family: comfortaa;
 }
 a:hover {
-  font-size: 24px;
+  font-size: 20px;
   color: rgb(205, 14, 230);
   font-family: shrikhand;
 }
@@ -71,8 +71,18 @@ ul.userPicks {
 }
 .aboutMe a {
     font-family: henny Penny;
-    color: #bf0fb6;
+    color: #4ccde3;
     font-size: 18px;
+    text-shadow: 
+    0 0 7px #fff,
+    0 0 10px rgb(200, 0, 255),
+    0 0 22px rgb(200, 0, 255),
+    0 0 42px rgb(200, 0, 255);
+    
+}
+.aboutMe a:hover {
+  font-size: 18px;
+  color:#0073e6;
 }
 
 /* DESIGN LANDING PAGE */
@@ -82,9 +92,24 @@ ul.userPicks {
   color: rgb(254, 255, 255);
 }
 h1 {
+  grid-column: 2;
+  width: max-content;
+  justify-self: center;
+  grid-row: 1;
+}
+
+h1, h2, h3 {
   font-family: exan-regular;
-  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6,
-    0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
+  text-shadow: 0 0 5px #fff, 
+  0 0 10px #fff, 
+  0 0 15px #0073e6, 
+  0 0 40px #0073e6,
+  0 0 25px #0073e6, 
+  0 0 30px #0073e6, 
+  0 0 35px #0073e6;
+}
+h3 {
+  max-height: 150px;
 }
 
 /* CSS FOR MAIN (CENTER) ARTICLES ON PAGE */
@@ -109,7 +134,8 @@ main {
   grid-column: 2;
   grid-row: 2;
   grid-template-rows: max-content;
-  font-family: ;
+  font-family: comfortaa;
+  font-size: 12px;
 }
 .mainArticle img {
   width: 120px;
@@ -118,7 +144,6 @@ main {
   grid-row: 1;
   grid-column: 2;
   text-align: center;
-  font-family: astro;
   font-size:40px;
   width: fit-content;
   height: 25px;
@@ -153,12 +178,6 @@ header {
   grid-template-columns: .20fr 1fr .20fr;
   grid-template-rows: 1fr .25fr ;
 }
-h1 {
-  grid-column: 2;
-  width: max-content;
-  justify-self: center;
-  grid-row: 1;
-}
 
 .header {
   grid-row: 2;
@@ -169,4 +188,8 @@ h1 {
 header a {
   height: 25%;
   align-self: center;
+}
+
+@media screen {
+  
 }

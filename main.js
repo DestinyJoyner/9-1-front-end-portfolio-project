@@ -109,9 +109,9 @@ function landingPageInfo(defaultShow, index) {
 landingPageInfo(`house of the dragon`);
 landingPageInfo(`archer`);
 landingPageInfo(`the walking dead`);
-landingPageInfo(`the rings of power`);
-landingPageInfo(`westworld`);
-landingPageInfo(`rick and morty`);
+// landingPageInfo(`the rings of power`);
+// landingPageInfo(`westworld`);
+// landingPageInfo(`rick and morty`);
 
 //EVENT LISTENER FOR FORM INPUT 
 form.addEventListener(`submit`, (e) => {
@@ -144,3 +144,4 @@ clickForMore.addEventListener(`click`, (e) => {
 
 //Use localStorage to restore userPicks on page when reloaded
 // userPicks.innerHTML = localStorage.getItem(`watchList`)
+//localStorage.setItem(`link`, ``)
