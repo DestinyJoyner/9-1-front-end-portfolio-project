@@ -1,5 +1,4 @@
 //USER PICKS JS FROM LINK CLICK
-// console.log(localStorage.getItem(`link`))
 const link = localStorage.getItem(`link`)
 
 fetch(`https://api.tvmaze.com/shows/${link}`)
@@ -70,6 +69,9 @@ fetch(`https://api.tvmaze.com/shows/${link}`)
             const epSummary = document.createElement('p')
             epSummary.id =`${ep.id}`
             epSummary.classList.add(`hidden`)
+            if(ep.summary === ``){
+                ep.summary = `No Description Available`
+            }
             epSummary.innerHTML = `${ep.summary}`
             season1.append(option)
             storage.append(epSummary)
