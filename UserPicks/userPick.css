@@ -1,33 +1,38 @@
 
 body {
     color: white;
+    background-image: url(../assets/oldtvdrawing.png);
+    background-color: black;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: 800px 1000px;
-}
-header {
-    display:grid;
-    justify-content: center;
-}
-h1 {
-    font-size: 60px;
-    font-family: ;
+    /* object-fit: cover; */
+    position: relative;
+    /* background-size: cover; */
+    /* background-size: cover; */
 }
 main {
     display: grid;
-    grid-template-rows: max-content;
+    grid-template-columns:10% 65% 25%;
+    grid-template-rows: 4% 17% 60%;
+
     
 }
-.tvShowInfo {
-    grid-row: 1;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.658);
-    display: flex;
+h1 {
+    grid-column: 1/5;
+    width: fit-content;
+    height: fit-content;
+    justify-self: center;
 }
+.tvShowInfo {
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: .25fr .15fr 1fr .5fr;
+    grid-template-rows: max-content;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0);
+    }
 
 .episodeSection {
-    grid-row: 2;
+    grid-row: 3;
     display: grid;
     color: red;
     grid-template-columns: repeat(4,1fr);
@@ -43,3 +48,26 @@ main {
     background-color:rgba(0, 0, 0, 0.658) ;
     border: 2px solid aqua;
 }
+
+.mediumImage {
+    /* position:relative; */
+    width: 180px;
+    height: 220px;
+    /* bottom: 90px;
+    left: 110px; */
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+}
+.summary {
+    grid-column: 3/5;
+    grid-row: 1;
+}
+.type{
+    grid-row: 2;
+    align-self: center;
+}
+.officialSite {
+    grid-column: 3/5;
+}
+

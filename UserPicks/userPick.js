@@ -8,7 +8,6 @@ fetch(`https://api.tvmaze.com/shows/${link}`)
     // variables with default values if respJson values are null
     const showName = respJson.name
     let type = null
-    let backImage = `assets/No_image_available.svg.png`
     let image = `assets/No_image_available.svg.png`
     let summary = null
     let officialSite = null
@@ -16,7 +15,6 @@ fetch(`https://api.tvmaze.com/shows/${link}`)
     let genre = null
     let premiered = null
     if(respJson.image){
-        backImage = respJson.image.original
         image = respJson.image.medium
     }
     if(respJson.summary){
@@ -42,7 +40,6 @@ fetch(`https://api.tvmaze.com/shows/${link}`)
     }
 
     // Populate page with values from fetch
-    document.body.style.backgroundImage = `url('${backImage}')`
     const h1 = document.querySelector(`h1`)
     h1.innerText = showName
     const tvShowInfo = document.querySelector(`.tvShowInfo`)
@@ -50,13 +47,11 @@ fetch(`https://api.tvmaze.com/shows/${link}`)
     const mediumImage = document.querySelector(`.mediumImage`)
     mediumImage.src = image
 
-    showSummary.innerHTML = `
-    <p>${summary}</p>
-    <p>First Aired: ${premiered}</p>
-    <p>${type}</p>
-    <p>${genre}</p>
-    <p>${language}</p>
-    <p><a href="${officialSite}" target="_blank">${officialSite}</a></p>
+    tvShowInfo.innerHTML += `
+    <div class="summary">${summary}</div>
+    <div class="type">First Aired: ${premiered}</br>${type}</br>
+    ${genre}</br>${language}</div>
+    <div class="officialSite"><a href="${officialSite}" target="_blank">${officialSite}</a></div>
     `
 })
 .catch(err => console.log(err))

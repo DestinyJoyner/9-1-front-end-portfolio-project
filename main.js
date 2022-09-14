@@ -143,4 +143,4 @@ clickForMore.addEventListener(`click`, (e) => {
 });
 
 //Use localStorage to restore userPicks on page when reloaded
-userPicks.innerHTML = localStorage.getItem(`watchList`)
+// userPicks.innerHTML = localStorage.getItem(`watchList`)

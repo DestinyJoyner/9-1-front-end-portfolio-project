@@ -44,13 +44,13 @@
   bottom: 0;
   z-index: -1;
 }
-
+/*  */
 .static {
   width: 79px;
   height: 65px;
-  position: absolute;
-  top: 200px;
-  right: 80px;
+  position: relative;
+  top: -95px;
+  left: 51px;
 }
 a {
   color: aqua;
