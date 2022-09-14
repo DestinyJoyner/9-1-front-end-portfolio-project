@@ -1,0 +1,45 @@
+
+body {
+    color: white;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 800px 1000px;
+}
+header {
+    display:grid;
+    justify-content: center;
+}
+h1 {
+    font-size: 60px;
+    font-family: ;
+}
+main {
+    display: grid;
+    grid-template-rows: max-content;
+    
+}
+.tvShowInfo {
+    grid-row: 1;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.658);
+    display: flex;
+}
+
+.episodeSection {
+    grid-row: 2;
+    display: grid;
+    color: red;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: auto;
+    text-align: center;
+    width: fit-content;
+    margin: auto;
+    
+}
+.episode {
+    width: 20ch;
+    height: max-content;
+    background-color:rgba(0, 0, 0, 0.658) ;
+    border: 2px solid aqua;
+}
