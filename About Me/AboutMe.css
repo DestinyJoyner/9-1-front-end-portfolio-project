@@ -7,7 +7,7 @@ h1 {
     grid-column: 2;
     font-size: 25px;
     font-family: cabin sketch ;
-    color: black;
+    color: orangered;
     text-align: center;
     letter-spacing: 12px;
 }
@@ -20,23 +20,31 @@ section {
     
 
 }
-aside.left {
-    grid-column: 1;
+aside.left, aside.right {
+    /* grid-column: 1; */
     display: grid;
     grid-template-rows: repeat(3,1fr);
     row-gap: 65px;
     background-color:black;
-    
-    
 }
-.link{
+
+.link, .rightSide{
     display: grid;
     align-content: center;
     background-image: url("../assets/comic-icon-small.png");
     height: 80px;
     text-align: center;
     width: 120px;
+}
 
+.gif{
+    width: 120px;
+}
+
+.rightSide {
+    font-family: henny penny;
+    font-size: 14px;
+    color: rgb(11, 4, 152);
 }
 div a {
     font-size: 20px;
@@ -54,10 +62,26 @@ article {
     background-repeat: no-repeat;
     
 }
-aside.right {
+/* aside.right {
     grid-column: 3;
-    background-color: black;
+    background-color: white;
+    color: white;
 }
+.gif{
+    width: 150px;
+   position: relative;
+   top: -120px;
+}
+ul {
+    background-color: black;
+    position: relative;
+    top: -80px;
+    /* text-indent: 17px; */
+    /* list-style: none;
+}
+p.right {
+    background-color: black;
+} */ 
 
 footer {
     width: 100%;
@@ -75,7 +99,7 @@ footer a {
 .textContainer {
     display: inline-block;
     position: relative;
-    top: 80px;
+    top: 65px;
     left: 155px;
     width: 172px;
     background-color: black;
