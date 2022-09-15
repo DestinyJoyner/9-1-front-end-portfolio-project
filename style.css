@@ -190,6 +190,57 @@ header a {
   align-self: center;
 }
 
-@media screen {
+@media (max-width: 500px) {
+  header {
+    grid-template-columns: 1fr;
+    grid-template-rows: .25fr 1fr .5fr;
+    font-size: 14px;
+  }
+  h1 {
+    grid-row: 2;
+  }
+  .header {
+    grid-row: 3;
+  }
+  .aboutMe img {
+    display: none;
+  }
+  .aboutMe {
+    font-size: 12px;
+    grid-row: 1;
+    grid-column: 2;
+    justify-self: center;
+  }
+  main{
+    grid-template-columns: 1fr 1fr;
+  }
+  .middlePage{
+    grid-template-columns: 1fr ;
+    grid-column: 1;
+    
+  }
+  .mainArticle {
+    display: inline-block;
+    grid-column: 1;
+  }
+  .mainArticleHeader {
+    grid-column: 1;
+  }
+  .tvShowImage {
+    width: 50px;
+    height: 150px;
+  }
+  p p {
+    display: none;
+  }
+  .developerPicks {
+    display: none;
+  }
+  h3 img {
+    display: none;
+  }
+  h3 {
+    text-align: center;
+  }
   
 }

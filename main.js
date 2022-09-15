@@ -46,6 +46,7 @@ function fetchInput(tvShow, index) {
         <p>${tvShowCountry}(${show.language})</p>
         <p>${show.genres[0]}</p>
         <p>${show.rating.average}</p>
+        <br>
         `;
         tvInfo.prepend(tvImage);
         if (i >= 3) {
@@ -61,7 +62,6 @@ function fetchInput(tvShow, index) {
         labelCheckbox.for = `${show.id}`;
         labelCheckbox.innerHTML = `Add To My Watch List<br>`;
         labelCheckbox.classList.add(`checkbox`);
-        labelCheckbox.style.fontFamily = `Shrikhand`;
         const checkbox = document.createElement(`input`);
         checkbox.type = `checkbox`;
         checkbox.name = `checkbox`;
@@ -71,17 +71,17 @@ function fetchInput(tvShow, index) {
         checkbox.addEventListener(`change`, (e) => {
           if (e.target.checked) {
             const li = document.createElement(`li`);
-            const aTag = document.createElement(`a`)
-            aTag.href = `UserPicks/userPick.html`
-            aTag.target = `_blank`
-            aTag.classList.add(`ulLink`)
+            const aTag = document.createElement(`a`);
+            aTag.href = `UserPicks/userPick.html`;
+            aTag.target = `_blank`;
+            aTag.classList.add(`ulLink`);
             //Event Listener for userPick links to store value in local storage
             aTag.addEventListener(`click`, (event) => {
-                localStorage.setItem(`link`, e.target.value);
-            })
-            aTag.innerText = e.path[2].children[1].innerText
-            li.append(aTag)
-            userPicks.append(li)
+              localStorage.setItem(`link`, e.target.value);
+            });
+            aTag.innerText = e.path[2].children[1].innerText;
+            li.append(aTag);
+            userPicks.append(li);
           }
           if (!e.target.checked) {
             const liElements = document.querySelectorAll(`li`);
@@ -91,7 +91,7 @@ function fetchInput(tvShow, index) {
               }
             });
           }
-          localStorage.setItem(`watchList`, userPicks.innerHTML)
+          localStorage.setItem(`watchList`, userPicks.innerHTML);
         }); //closes checkbox event listener
         labelCheckbox.append(checkbox);
         tvInfo.append(labelCheckbox);
@@ -113,19 +113,23 @@ landingPageInfo(`the walking dead`);
 // landingPageInfo(`westworld`);
 // landingPageInfo(`rick and morty`);
 
-//EVENT LISTENER FOR FORM INPUT 
+//EVENT LISTENER FOR FORM INPUT
 form.addEventListener(`submit`, (e) => {
   e.preventDefault();
   //ERROR MESSAGE IF NO INPUT
-  if(!form.input.value){
-    window.alert(`If you didn't want to watch anything, you wouldn't be here. Please enter a TvShow`)
+  if (!form.input.value) {
+    window.alert(
+      `If you didn't want to watch anything, you wouldn't be here. Please enter a TvShow`
+    );
+  } 
+  else {
+    mainArticle.innerHTML = ``;
+    mainArticle.append(clickForMore);
+    const input = showConverter(form.input.value);
+    fetchInput(input);
+    clickForMore.classList.toggle(`hidden`);
+    form.reset();
   }
-  mainArticle.innerHTML = ``;
-  mainArticle.append(clickForMore);
-  const input = showConverter(form.input.value);
-  fetchInput(input);
-  clickForMore.classList.toggle(`hidden`);
-  form.reset();
 });
 
 //EVENT LISTENER FOR 'clickForMore' LINK
