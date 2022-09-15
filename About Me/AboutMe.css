@@ -1,129 +1,176 @@
-* {
-    border: 1px solid black;
-    
-
+body {
+  background-color: black;
+}
+.hidden {
+  visibility: hidden;
 }
 h1 {
-    grid-column: 2;
-    font-size: 25px;
-    font-family: cabin sketch ;
-    color: orangered;
-    text-align: center;
-    letter-spacing: 12px;
+  grid-column: 2;
+  font-size: 25px;
+  font-family: cabin sketch;
+  color: orangered;
+  text-align: center;
+  letter-spacing: 12px;
+  border-bottom: 1px;
 }
 
 section {
-    display: grid;
-    place-items: center;
-    grid-template-columns: 1fr 3fr 1fr;
-    background-color: white;
-    
-
-}
-aside.left, aside.right {
-    /* grid-column: 1; */
-    display: grid;
-    grid-template-rows: repeat(3,1fr);
-    row-gap: 65px;
-    background-color:black;
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr 3fr 1fr;
+  background-color: white;
 }
 
-.link, .rightSide{
-    display: grid;
-    align-content: center;
-    background-image: url("../assets/comic-icon-small.png");
-    height: 80px;
-    text-align: center;
-    width: 120px;
+aside.left,
+aside.right {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  row-gap: 65px;
+  background-color: black;
 }
 
-.gif{
-    width: 120px;
+.link,
+.rightSide {
+  display: grid;
+  align-content: center;
+  background-image: url("../assets/comic-icon-small.png");
+  height: 80px;
+  text-align: center;
+  width: 120px;
+}
+
+.gif {
+  width: 120px;
 }
 
 .rightSide {
-    font-family: henny penny;
-    font-size: 14px;
-    color: rgb(11, 4, 152);
+  font-family: henny penny;
+  font-size: 14px;
+  color: rgb(11, 4, 152);
 }
 div a {
-    font-size: 20px;
-    font-family: rampart one ;
-    color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.181);
-    
+  font-size: 20px;
+  font-family: rampart one;
+  color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.181);
 }
 article {
-    grid-column: 2;
-    background-image: url("../assets/Handheld-game-pic.png");
-    background-color: orangered;
-    width: 500px;
-    height: 500px;
-    background-repeat: no-repeat;
-    
+  grid-column: 2;
+  background-image: url("../assets/Handheld-game-pic.png");
+  background-color: orangered;
+  width: 500px;
+  height: 500px;
+  background-repeat: no-repeat;
 }
-/* aside.right {
-    grid-column: 3;
-    background-color: white;
-    color: white;
+a:hover {
+  font-size: 24px;
+  color: navy;
 }
-.gif{
-    width: 150px;
-   position: relative;
-   top: -120px;
-}
-ul {
-    background-color: black;
-    position: relative;
-    top: -80px;
-    /* text-indent: 17px; */
-    /* list-style: none;
-}
-p.right {
-    background-color: black;
-} */ 
 
 footer {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    font-family: rubik moonrocks;
-    background-color: black;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  font-family: rubik moonrocks;
+  background-color: black;
 }
 footer a {
-    color: orangered;
+  color: orangered;
 }
 /* TYPEWRITER EFFECT */
 /* https://www.sitepoint.com/css-typewriter-effect/ */
 
 .textContainer {
-    display: inline-block;
-    position: relative;
-    top: 65px;
-    left: 155px;
-    width: 172px;
-    background-color: black;
+  display: inline-block;
+  position: relative;
+  top: -2px;
+  left: -48px;
+  width: 172px;
+  background-color: black;
 }
 
 .text {
-    text-align: center;
-    overflow: hidden;
-    border-right: .15em solid black;
-    white-space: nowrap;
-    font-size: 1.1rem;
-    width: 0;
-     animation: 
-      typing 5s steps(20, end) forwards, blink .8s infinite;
-      color: white;
-    }
+  text-align: center;
+  overflow: hidden;
+  border-right: 0.15em solid black;
+  white-space: nowrap;
+  font-size: 1.1rem;
+  width: 0;
+  animation: typing 5s steps(20, end) forwards, blink 0.8s infinite;
+  color: white;
+}
 @keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
+  from {
+    width: 0;
   }
-  @keyframes blink {
-    from { border-color: transparent }
-    to { border-color:rgb(0, 0, 0); }
+  to {
+    width: 100%;
   }
+}
+@keyframes blink {
+  from {
+    border-color: transparent;
+  }
+  to {
+    border-color: rgb(0, 0, 0);
+  }
+}
 
-
-  
+/* Media Query */
+@media (max-width: 700px) {
+  * {
+    font-family: nanum;
+    color: orangered;
+    background-color: white;
+  }
+  body {
+    background-color: white;
+  }
+  section {
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: max-content;
+    place-items: center;
+  }
+  aside.right {
+    display: none;
+  }
+  aside.left {
+    grid-column: 1;
+    display: block;
+  }
+  .link {
+    background-image: none;
+    background-color: black;
+    font-size: 10px;
+  }
+  div a {
+    color: orangered;
+    font-family: nanum;
+  }
+  article {
+    grid-column: 2;
+    background-image: none;
+    background-color: black;
+    display: block;
+    width: 220px;
+    text-align: center;
+    height: fit-content;
+  }
+  .textContainer {
+    display: inline-block;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 172px;
+    background-color: black;
+  }
+  .hidden {
+    visibility: visible;
+    width: 100px;
+  }
+  footer {
+    width: 300px;
+    margin-left: 100px;
+    margin-top: 10px;
+  }
+}
