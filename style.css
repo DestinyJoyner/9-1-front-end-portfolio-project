@@ -63,11 +63,21 @@ ul.userPicks {
 .aboutMe {
     justify-self: end;
     grid-row: span 2;
+    background-image: url('./assets/universe-space.gif');
+    text-align: center;
+
+}
+.aboutMe img {
+  transition: width 2s, height 2s, background-color 2s, transform 2s;
+}
+.aboutMe img:hover {
+  background-color: #000000;
+  transform: rotate(720deg);
 }
 .aboutMe a {
     font-family: henny Penny;
     color: #4ccde3;
-    font-size: 18px;
+    font-size: 14px;
     text-shadow: 
     0 0 7px #fff,
     0 0 10px rgb(200, 0, 255),
@@ -76,7 +86,7 @@ ul.userPicks {
     
 }
 .aboutMe a:hover {
-  font-size: 18px;
+  font-size: 20px;
   color:#0073e6;
 }
 
@@ -171,6 +181,7 @@ header {
   display: grid;
   grid-template-columns: .20fr 1fr .20fr;
   grid-template-rows: 1fr .25fr ;
+  
 }
 
 .header {
