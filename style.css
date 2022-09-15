@@ -28,6 +28,17 @@
 
 
 /* Background Video */
+/* Video Background:"https://www.vecteezy.com/" */
+.vecteezy span {
+  font-size: 8px;
+  color: #0073e6;
+}
+.vecteezy:hover span {
+  display: none
+}
+.vecteezy:hover::before {
+  content: "Video Background"
+}
 #background-video {
   width: 100vw;
   height: 100vh;
@@ -39,7 +50,7 @@
   bottom: 0;
   z-index: -1;
 }
-/*  */
+
 .static {
   width: 79px;
   height: 65px;
@@ -88,6 +99,12 @@ ul.userPicks {
 .aboutMe a:hover {
   font-size: 20px;
   color:#0073e6;
+}
+.aboutMe a:hover span {
+  display: none
+}
+.aboutMe a:hover::before {
+  content: "Click Me!"
 }
 
 /* DESIGN LANDING PAGE */
