@@ -109,6 +109,38 @@ function landingPageInfo(defaultShow, index) {
 landingPageInfo(`house of the dragon`);
 landingPageInfo(`archer`);
 landingPageInfo(`the walking dead`);
+//Use localStorage to restore userPicks on page when reloaded
+userPicks.innerHTML = localStorage.getItem(`watchList`);
+
+//Populate My Picks on the Page
+const myPicks = document.querySelector(`.scrollingImageContainer`);
+function developerPicks(myshow) {
+  fetch(`https://api.tvmaze.com/search/shows?q=${myshow}`)
+    .then((resp) => resp.json())
+    .then((respJson) => {
+      respJson.forEach(({ show }, i) => {
+        if (i === 0) {
+          const myImage = show.image.medium;
+          const myShowName = show.name;
+          const myDiv = document.createElement(`div`);
+          myDiv.classList.add(`scrollingImages`);
+          myDiv.innerHTML = `
+          <img src="${myImage}" alt="${myShowName}"><br>
+      ${myShowName}
+      `;
+          myPicks.append(myDiv);
+        }
+      });
+    });
+}
+// if(myPicks.innerHTML === ``)
+developerPicks(`game of thrones`)
+developerPicks(`insecure`)
+developerPicks(`breaking bad`)
+
+localStorage.setItem(`myPicks`, myPicks.innerHTML)
+// Clear out previous store 'link' data
+// localStorage.setItem(`link`, ``)
 // landingPageInfo(`the rings of power`);
 // landingPageInfo(`westworld`);
 // landingPageInfo(`rick and morty`);
@@ -121,8 +153,7 @@ form.addEventListener(`submit`, (e) => {
     window.alert(
       `If you didn't want to watch anything, you wouldn't be here. Please enter a TvShow`
     );
-  } 
-  else {
+  } else {
     mainArticle.innerHTML = ``;
     mainArticle.append(clickForMore);
     const input = showConverter(form.input.value);
@@ -145,7 +176,3 @@ clickForMore.addEventListener(`click`, (e) => {
   }
   clickForMore.classList.toggle(`hidden`);
 });
-
-//Use localStorage to restore userPicks on page when reloaded
-// userPicks.innerHTML = localStorage.getItem(`watchList`)
-//localStorage.setItem(`link`, ``)

@@ -1,11 +1,3 @@
-/* Mouse Over for Tv SHow Image to Show summary */
-/* .tvShowSummary {
-    max-width: 30ch;
-    max-height: 100px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-} */
-
 /* SCROLLING IMAGES DEVELOPER'S PICKS
     https://blog.logrocket.com/creating-infinite-css-background-image-loop/
      */
@@ -14,7 +6,7 @@
     transform: translate(0);
   }
   100% {
-    transform: translate(-450px); /* The image width */
+    transform: translate(-150px); /* The image width */
   }
 }
 .scrollingImageContainer {
@@ -28,9 +20,12 @@
   height: 200px;
 }
 .scrollingImages {
-  height: 200px;
-  animation: slide 10s linear infinite;
+  height: 220px;
+  width: 750px ;
+  animation: slide 6s linear infinite;
+  
 }
+
 
 /* Background Video */
 #background-video {
@@ -136,6 +131,7 @@ main {
   grid-template-rows: max-content;
   font-family: comfortaa;
   font-size: 12px;
+  column-gap: 10px;
 }
 .mainArticle img {
   width: 120px;
@@ -184,6 +180,14 @@ header {
   grid-column: 2;
   width: max-content;
   justify-self: center;
+}
+input {
+  background-color: #010810;
+  border: 1px solid white;
+}
+.button{
+  background-color: #bf23d1;
+  color: #000709;
 }
 header a {
   height: 25%;
@@ -244,3 +248,4 @@ header a {
   }
   
 }
+
