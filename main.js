@@ -126,19 +126,20 @@ function developerPicks(myshow) {
           myDiv.classList.add(`scrollingImages`);
           myDiv.innerHTML = `
           <img src="${myImage}" alt="${myShowName}"><br>
-      ${myShowName}
-      `;
+          ${myShowName}
+          `;
           myPicks.append(myDiv);
         }
+        localStorage.setItem(`myPicks`, myPicks.innerHTML)
       });
     });
 }
-// if(myPicks.innerHTML === ``)
-developerPicks(`game of thrones`)
-developerPicks(`insecure`)
-developerPicks(`breaking bad`)
+// Populate 'Developer's Picks using localStorage
+myPicks.innerHTML = localStorage.getItem(`myPicks`)
 
-localStorage.setItem(`myPicks`, myPicks.innerHTML)
+
+
+
 // Clear out previous store 'link' data
 // localStorage.setItem(`link`, ``)
 // landingPageInfo(`the rings of power`);

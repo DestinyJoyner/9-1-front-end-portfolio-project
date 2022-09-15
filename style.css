@@ -16,12 +16,12 @@
   justify-content: space-evenly;
 }
 .scrollingImages img {
-  width: 150px;
+  width: 140px;
   height: 200px;
 }
 .scrollingImages {
   height: 220px;
-  width: 750px ;
+  width: 450px ;
   animation: slide 6s linear infinite;
   
 }
@@ -152,11 +152,9 @@ main {
   align-self: center;
 }
 .developerPicks {
-  grid-row: 3;
   display: grid;
   grid-template-columns: fit-content();
   align-items: center;
-  grid-column: 2;
   text-align: center;
 }
 .userPicks {
@@ -194,6 +192,7 @@ header a {
   align-self: center;
 }
 
+/* Media Query */
 @media (max-width: 500px) {
   header {
     grid-template-columns: 1fr;
