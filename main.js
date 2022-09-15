@@ -25,7 +25,7 @@ function fetchInput(tvShow, index) {
       //STORE ALL FETCHED DATA LOCALLY
       localStorage.setItem(`${tvShow}`, respJson);
       respJson.forEach(({ show }, i) => {
-        const tvInfo = document.createElement(`p`);
+        const tvInfo = document.createElement(`div`);
         const tvImage = document.createElement(`img`);
         tvImage.classList.add(`tvShowImage`);
         let tvShowCountry = "Unknown";

@@ -193,7 +193,7 @@ header a {
 }
 
 /* Media Query */
-@media (max-width: 500px) {
+@media (max-width: 540px) {
   header {
     grid-template-columns: 1fr;
     grid-template-rows: .25fr 1fr .5fr;
@@ -223,17 +223,25 @@ header a {
     
   }
   .mainArticle {
-    display: inline-block;
+    display: block;
     grid-column: 1;
+    width: 300px;
+    font-size: 22px;
+    font-family: aboreto ;
+    
+  }
+  .mainArticle div img {
+    width: 250px;
   }
   .mainArticleHeader {
     grid-column: 1;
   }
-  .tvShowImage {
-    width: 50px;
-    height: 150px;
+  .watchList {
+    font-size: 22px;
+    font-family: aboreto ;
   }
-  p p {
+ 
+  div p {
     display: none;
   }
   .developerPicks {
