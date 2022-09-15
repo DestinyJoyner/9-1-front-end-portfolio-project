@@ -177,3 +177,4 @@ clickForMore.addEventListener(`click`, (e) => {
   }
   clickForMore.classList.toggle(`hidden`);
 });
+// localStorage.setItem(`watchList`, ``)
