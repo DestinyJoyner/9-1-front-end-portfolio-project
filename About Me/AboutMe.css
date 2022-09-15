@@ -1,16 +1,23 @@
 * {
     border: 1px solid black;
+    
 
 }
 h1 {
+    grid-column: 2;
+    font-size: 25px;
+    font-family: cabin sketch ;
+    color: black;
     text-align: center;
-    font-size: 20px;
+    letter-spacing: 12px;
 }
 
 section {
     display: grid;
     place-items: center;
     grid-template-columns: 1fr 3fr 1fr;
+    background-color: white;
+    
 
 }
 aside.left {
@@ -18,6 +25,7 @@ aside.left {
     display: grid;
     grid-template-rows: repeat(3,1fr);
     row-gap: 65px;
+    background-color:black;
     
     
 }
@@ -28,9 +36,13 @@ aside.left {
     height: 80px;
     text-align: center;
     width: 120px;
+
 }
 div a {
     font-size: 20px;
+    font-family: rampart one ;
+    color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.181);
     
 }
 article {
@@ -44,11 +56,18 @@ article {
 }
 aside.right {
     grid-column: 3;
+    background-color: black;
 }
 
 footer {
-    display: inline-block;
+    width: 100%;
+    display: flex;
     justify-content: space-evenly;
+    font-family: rubik moonrocks;
+    background-color: black;
+}
+footer a {
+    color: orangered;
 }
 /* TYPEWRITER EFFECT */
 /* https://www.sitepoint.com/css-typewriter-effect/ */
