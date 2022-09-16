@@ -107,12 +107,15 @@ function landingPageInfo(defaultShow, index) {
   clickForMore.classList.add(`hidden`);
 }
 landingPageInfo(`house of the dragon`);
-landingPageInfo(`archer`);
+landingPageInfo(`rick and morty`);
 landingPageInfo(`the walking dead`);
+
 //Use localStorage to restore userPicks on page when reloaded
 userPicks.innerHTML = localStorage.getItem(`watchList`);
 
 //Populate My Picks on the Page
+// Function to fetch data initially, then will be stored in localStorage to populate the page on load up 
+// Commented out and not removed for later use if local storage is cleared
 const myPicks = document.querySelector(`.scrollingImageContainer`);
 function developerPicks(myshow) {
   fetch(`https://api.tvmaze.com/search/shows?q=${myshow}`)
@@ -134,17 +137,10 @@ function developerPicks(myshow) {
       });
     });
 }
+
+// localStorage.setItem(`myPicks`, ``)
 // Populate 'Developer's Picks using localStorage
 myPicks.innerHTML = localStorage.getItem(`myPicks`)
-
-
-
-
-// Clear out previous store 'link' data
-// localStorage.setItem(`link`, ``)
-// landingPageInfo(`the rings of power`);
-// landingPageInfo(`westworld`);
-// landingPageInfo(`rick and morty`);
 
 //EVENT LISTENER FOR FORM INPUT
 form.addEventListener(`submit`, (e) => {
@@ -152,7 +148,7 @@ form.addEventListener(`submit`, (e) => {
   //ERROR MESSAGE IF NO INPUT
   if (!form.input.value) {
     window.alert(
-      `If you didn't want to watch anything, you wouldn't be here. Please enter a TvShow`
+      `If you didn't want to watch anything, you wouldn't be here. Please enter a TVShow`
     );
   } else {
     mainArticle.innerHTML = ``;
@@ -177,4 +173,7 @@ clickForMore.addEventListener(`click`, (e) => {
   }
   clickForMore.classList.toggle(`hidden`);
 });
+
+// Clear out previous stored 'link' and 'watchList' data
+// localStorage.setItem(`link`, ``)
 // localStorage.setItem(`watchList`, ``)
