@@ -108,3 +108,10 @@ h1 {
     
 }
 
+@media (min-width: 900px){
+    body {
+        position: relative;
+        background-position: center
+    }
+}
+
