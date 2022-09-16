@@ -7,7 +7,7 @@ fetch(`https://api.tvmaze.com/shows/${link}`)
     // variables with default values if respJson values are null
     const showName = respJson.name
     let type = null
-    let image = `assets/No_image_available.svg.png`
+    let image = `../assets/No_image_available.svg.png`
     let summary = null
     let officialSite = null
     let language = null
