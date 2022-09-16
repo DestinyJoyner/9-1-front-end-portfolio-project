@@ -284,3 +284,9 @@ header a {
   
 }
 
+@media (min-width : 1336px) {
+  .static {
+    top: -26px;
+    left: -160px;
+  }
+}
