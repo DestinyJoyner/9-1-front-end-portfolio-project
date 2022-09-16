@@ -145,7 +145,7 @@ developerPicks(`the boondocks`)
 developerPicks(`the office`)
 // localStorage.setItem(`myPicks`, ``)
 // Populate 'Developer's Picks using localStorage
-myPicks.innerHTML = localStorage.getItem(`myPicks`)
+// myPicks.innerHTML = localStorage.getItem(`myPicks`)
 
 //EVENT LISTENER FOR FORM INPUT
 form.addEventListener(`submit`, (e) => {
