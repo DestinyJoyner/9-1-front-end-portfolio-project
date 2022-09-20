@@ -19,6 +19,7 @@ const createImage = (imgSource, showName) => {
 };
 
 //Function to create checkboxes and label
+//REFACTOR HEAVY
 
 const createCheckbox = (id, showName) => {
   const labelCheckbox = document.createElement(`label`);
@@ -32,6 +33,7 @@ const createCheckbox = (id, showName) => {
   checkbox.value = id;
   labelCheckbox.append(checkbox);
 
+  //EVENT LISTENER FOR CHECKBOX
   checkbox.addEventListener(`change`, () => {
     const userPicks = document.querySelector(`.userPicks`)
     if (checkbox.checked) {
@@ -58,7 +60,6 @@ const createCheckbox = (id, showName) => {
       removeListButton.addEventListener(`click`, () => {
         //remove li item from list
         document.getElementById(`${removeListButton.classList}`).remove()
-        
         //uncheck tv show checkbox when removed from list
         const c1 = document.querySelectorAll(`.checkbox`)
         c1.forEach(c => {
@@ -70,7 +71,6 @@ const createCheckbox = (id, showName) => {
       li.append(removeListButton)
       userPicks.append(li);
       localStorage.setItem(`watchList`, userPicks.innerHTML)
-      
     }
     if(!checkbox.checked){
         const liElements = document.querySelectorAll(`li`);
@@ -81,9 +81,7 @@ const createCheckbox = (id, showName) => {
     });
     localStorage.setItem(`watchList`, userPicks.innerHTML)
 }
-   ;
   });
-
   return labelCheckbox;
 };
 

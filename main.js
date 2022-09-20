@@ -112,6 +112,7 @@ const removeButtons = document.querySelectorAll(`button`)
 removeButtons.forEach(button => {
   button.addEventListener(`click`, () => {
     document.getElementById(`${button.classList}`).remove()
+    localStorage.setItem(`watchList`, document.querySelector(`.userPicks`).innerHTML)
     const c1 = document.querySelectorAll(`.checkbox`)
     c1.forEach(c => {
         if(c.value === button.classList[0]){
