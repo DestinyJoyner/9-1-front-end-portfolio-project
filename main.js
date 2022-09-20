@@ -108,6 +108,20 @@ watchLinks.forEach(link => {
   })
 })
 
+const removeButtons = document.querySelectorAll(`button`)
+removeButtons.forEach(button => {
+  button.addEventListener(`click`, () => {
+    document.getElementById(`${button.classList}`).remove()
+    const c1 = document.querySelectorAll(`.checkbox`)
+    c1.forEach(c => {
+        if(c.value === button.classList[0]){
+            c.checked = false
+        }
+    })
+  })
+})
+
+
 // Clear out previous stored 'link' and 'watchList' data
 // localStorage.setItem(`link`, ``)
 // localStorage.setItem(`watchList`, ``)

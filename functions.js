@@ -54,8 +54,18 @@ const createCheckbox = (id, showName) => {
       const removeListButton = document.createElement(`button`)
       removeListButton.innerText = 'remove'
       removeListButton.classList.add(`${checkbox.value}`) 
+      //EVENT LISTENER FOR REMOVE BUTTON
       removeListButton.addEventListener(`click`, () => {
+        //remove li item from list
         document.getElementById(`${removeListButton.classList}`).remove()
+        
+        //uncheck tv show checkbox when removed from list
+        const c1 = document.querySelectorAll(`.checkbox`)
+        c1.forEach(c => {
+            if(c.value === removeListButton.classList[0]){
+                c.checked = false
+            }
+        })
       })
       li.append(removeListButton)
       userPicks.append(li);
