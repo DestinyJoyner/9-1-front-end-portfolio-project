@@ -11,7 +11,6 @@ If you decide you no longer wish to have a show on your 'watch list' search for 
 'add to my watchlist' box
 
 ## In order to use this Application:
-
 - Fork and Clone This repository
 - Open up the repository in VSCode
 - Open the 'index.html' file in the base folder with Live Server
