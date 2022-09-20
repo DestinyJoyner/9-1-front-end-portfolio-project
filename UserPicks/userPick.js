@@ -1,6 +1,7 @@
 //USER PICKS JS FROM LINK CLICK
 const link = localStorage.getItem(`link`)
-
+// import {tvID} from '../main.js'
+// console.log(tvID)
 
 fetch(`https://api.tvmaze.com/shows/${link}`)
 .then(resp => resp.json())
