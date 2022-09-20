@@ -104,6 +104,7 @@ const watchLinks = document.querySelectorAll(`a.ulLink`)
 watchLinks.forEach(link => {
   link.addEventListener(`click`, (e) =>{
     localStorage.setItem(`link`, link.id)
+    
   })
 })
 

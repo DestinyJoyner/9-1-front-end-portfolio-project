@@ -220,6 +220,13 @@ header a {
   align-self: center;
 }
 
+button {
+  background-color: #0073e6;
+  border-radius: 50% ;
+  width: 45px;
+  font-size: 8px;
+}
+
 /* Media Query */
 @media (max-width: 540px) {
   header {

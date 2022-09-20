@@ -49,6 +49,15 @@ const createCheckbox = (id, showName) => {
         localStorage.setItem(`link`, aTag.id)
       })
       li.append(aTag);
+
+      //CREATE BUTTON TO REMOVE FROM LIST
+      const removeListButton = document.createElement(`button`)
+      removeListButton.innerText = 'remove'
+      removeListButton.classList.add(`${checkbox.value}`) 
+      removeListButton.addEventListener(`click`, () => {
+        document.getElementById(`${removeListButton.classList}`).remove()
+      })
+      li.append(removeListButton)
       userPicks.append(li);
       localStorage.setItem(`watchList`, userPicks.innerHTML)
       
