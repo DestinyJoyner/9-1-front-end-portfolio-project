@@ -12,6 +12,8 @@ If you decide you no longer wish to have a show on your 'watch list' search for 
 
 ## In order to use this Application:
 
+- [Click here to go to App Webpage](https://destinyjoyner.github.io/9-1-front-end-portfolio-project/)
+or,
 - Fork and Clone This repository
 - Open up the repository in VSCode
 - Open the 'index.html' file in the base folder with Live Server
